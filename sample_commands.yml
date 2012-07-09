@@ -1,0 +1,16 @@
+command1:
+  description: メンテナンス開始
+  burn_time: "14:00:00"
+  content: |
+    cap maintenance\:nginx_start -S time="15:00-16:30"
+command2:
+  description: デプロイ
+  burn_time: "14:10:00"
+  content: |
+    cap deploy ROLES=deploy
+    cap deploy\:admin ROLES=admin
+command3:
+  description: メンテナンス終了
+  burn_time: "15:00:00"
+  content: |
+    cap maintenance\:nginx_end
