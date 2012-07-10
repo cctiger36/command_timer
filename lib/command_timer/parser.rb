@@ -11,9 +11,10 @@ module CommandTimer
         command = Command.new
         data.each do |k, v|
           if k == 'content'
-            command.content = []
+            command.content = ''
             v.each_line do |line|
-              command.content << line
+              command.content += line.strip
+              command.content += ';' unless command.content.end_with?(';')
             end
           else
             command.send("#{k}=", v)

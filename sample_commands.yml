@@ -1,8 +1,9 @@
 command1:
   description: メンテナンス開始
-  burn_time: "14:00:00"
+  burn_time: "11:33:00"
   content: |
-    cap maintenance\:nginx_start -S time="15:00-16:30"
+    cd ~/Documents/workspace/bm_gree/tower7
+    ls
 command2:
   description: デプロイ
   burn_time: "14:10:00"

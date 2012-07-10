@@ -5,8 +5,21 @@ $:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
 require "optparse"
 require "command_timer"
 
+options = {}
 opts = OptionParser.new do |opts|
+  opts.on("--version", "Display current version") do
+    puts "command_timer " + CommandTimer::VERSION
+    exit 0
+  end
 
+  opts.on("-c [COUNT_DOWN]", "Count down second") do |count_down|
+    options['count_down'] = count_down.to_i
+  end
+
+  opts.on("-s [NTP_SERVER]", "NTP Server") do |ntp_server|
+    options['ntp_server'] = ntp_server
+  end
 end
+opts.parse!
 
-CommandTimer.run ARGV[0]
+CommandTimer::Runner.new(ARGV[0], options).start

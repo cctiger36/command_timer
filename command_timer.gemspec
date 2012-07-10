@@ -4,7 +4,7 @@ require File.expand_path('../lib/command_timer/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["cctiger36"]
   gem.email         = ["cctiger36@gmail.com"]
-  gem.description   = %q{}
+  gem.description   = %q{Execute commands on schedule}
   gem.summary       = %q{Execute commands on schedule}
   gem.homepage      = ""
 

@@ -5,12 +5,18 @@ module CommandTimer
     attr_writer :burn_time
 
     def burn_time
-      Runner.parse_time(@burn_time)
+      CommandTimer.parse_time(@burn_time)
     end
 
     def exec
-      puts "run #{@content}"
+      echo_command
       system @content
+    end
+
+    def echo_command
+      @content.split(';').each do |line|
+        puts ">> #{line.strip.gsub('\\', '')}"
+      end
     end
   end
 end
