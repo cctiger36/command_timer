@@ -12,7 +12,7 @@ module CommandTimer
           return parse_time(%x[ntpdate -q #{server}].scan(/[0-9]{2}:[0-9]{2}:[0-9]{2}/).first)
         end
       end
-      puts "Warning: ntpdate not installed and use the local clock."
+      puts "Warning: ntpdate not found and then use the local clock."
       Time.now
     end
 

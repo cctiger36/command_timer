@@ -5,7 +5,11 @@ module CommandTimer
     attr_writer :burn_time
 
     def burn_time
-      CommandTimer.parse_time(@burn_time)
+      if @burn_time =~ /[0-9]{2}:[0-9]{2}:[0-9]{2}/
+        CommandTimer.parse_time(@burn_time)
+      else
+        nil
+      end
     end
 
     def exec
