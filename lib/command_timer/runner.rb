@@ -3,7 +3,7 @@ module CommandTimer
     def initialize(yml, options = {})
       @commands = Parser.parse(yml)
       echo_commands
-      @count_down = options['count_down'] || 15
+      @count_down = options['count_down'] || 30
       @ntp_server = options['ntp_server']
     end
 
@@ -11,6 +11,7 @@ module CommandTimer
       @commands.each_with_index do |command, index|
         puts "####################"
         puts "# Next: Command#{index + 1}"
+        puts "# #{command.description}" if command.description
         puts "####################"
         if command.burn_time
           count_down_and_burn_command(command)
@@ -71,6 +72,7 @@ module CommandTimer
         command.echo_command
       end
       puts "--------------------"
+      puts ""
     end
   end
 end
