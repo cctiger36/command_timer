@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["cctiger36@gmail.com"]
   gem.description   = %q{Simple tool to execute commands on schedule}
   gem.summary       = %q{Execute commands on schedule}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/cctiger36/command_timer"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
