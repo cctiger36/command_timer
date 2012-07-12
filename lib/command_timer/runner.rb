@@ -80,6 +80,7 @@ module CommandTimer
           puts "Be executed by user input"
         end
         command.echo_command
+        puts "Observer: #{command.observer}" if command.observer
       end
       puts "--------------------"
       puts ""

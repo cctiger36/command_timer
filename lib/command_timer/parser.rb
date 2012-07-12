@@ -10,17 +10,22 @@ module CommandTimer
         data = cell[1]
         command = Command.new
         data.each do |k, v|
-          if k == 'content'
-            command.content = ''
-            v.each_line do |line|
-              command.content += line.strip
-              command.content += ';' unless command.content.end_with?(';')
-            end
+          if ['content', 'observer'].include?(k)
+            command.send("#{k}=", parse_commands(v))
           else
             command.send("#{k}=", v)
           end
         end
         commands << command
+      end
+      commands
+    end
+
+    def self.parse_commands(text)
+      commands = ''
+      text.each_line do |line|
+        commands += line.strip
+        commands += ';' unless line.end_with?(';')
       end
       commands
     end
