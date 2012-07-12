@@ -55,12 +55,18 @@ module CommandTimer
     end
 
     def wait_input_to_continue(command)
-      input = ""
-      until ["c", "C", "continue"].include?(input) do
-        print "Input C to execute the next command: "
+      loop do
+        print "Input C to execute the next command or S to skip: "
         input = STDIN.gets.chomp
+        if ["c", "C", "continue"].include?(input)
+          command.exec
+          break
+        end
+        if ["s", "S", "skip"].include?(input)
+          puts "Command skipped."
+          break
+        end
       end
-      command.exec
     end
 
     def echo_commands
@@ -68,7 +74,11 @@ module CommandTimer
         puts "--------------------"
         puts "Command #{index + 1}"
         puts command.description if command.description
-        puts "Will be executed at #{command.burn_time}"
+        if command.burn_time
+          puts "Will be executed at #{command.burn_time}"
+        else
+          puts "Be executed by user input"
+        end
         command.echo_command
       end
       puts "--------------------"
