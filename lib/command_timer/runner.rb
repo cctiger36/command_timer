@@ -14,7 +14,11 @@ module CommandTimer
         puts "# #{command.description}" if command.description
         puts "####################"
         if command.burn_time
-          count_down_and_burn_command(command)
+          if ['auto', 'Auto'].include?(command.burn_time)
+            command.exec
+          else
+            count_down_and_burn_command(command)
+          end
         else
           wait_input_to_continue(command)
         end
