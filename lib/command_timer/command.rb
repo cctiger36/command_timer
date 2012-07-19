@@ -30,42 +30,12 @@ module CommandTimer
 
     def run_observer
       puts "===================="
-      puts "= Start observer, input S to stop it."
+      puts "= Start observer, press <Ctrl-C> to stop it."
       puts "= #{@observer}"
       puts "===================="
-      observer_thread = Thread.new do
-        if @grep
-          run_grep
-        else
-          system @observer
-        end
+      IO.popen @observer do |pipe|
       end
-      observer_thread.run
-      interaction_thread = Thread.new do
-        input = ""
-        until ["s", "S", "stop"].include?(input) do
-          input = STDIN.gets.chomp
-        end
-      end
-      interaction_thread.run
-      while observer_thread.alive? and interaction_thread.alive? do
-      end
-      observer_thread.kill
-      interaction_thread.kill
       puts "Observer stopped."
-    end
-
-    def run_grep
-      current_count = 0
-      grep_str = @grep.split(",").first
-      end_count = @grep.split(",").last.to_i
-      IO.popen @observer do |f|
-        while line = f.gets
-          puts line
-          current_count += 1 if line.include?(grep_str)
-          break if current_count >= end_count
-        end
-      end
     end
   end
 end
