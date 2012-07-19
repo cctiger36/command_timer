@@ -33,8 +33,7 @@ module CommandTimer
       puts "= Start observer, press <Ctrl-C> to stop it."
       puts "= #{@observer}"
       puts "===================="
-      IO.popen @observer do |pipe|
-      end
+      system @observer
       puts "Observer stopped."
     end
   end
