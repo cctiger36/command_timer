@@ -1,6 +1,6 @@
 # CommandTimer
 
-Simple tool to execute commands on schedule. Designed for deploy web applications.
+Simple tool to execute commands on schedule. Designed for maintain web applications.
 
 ## Installation
 

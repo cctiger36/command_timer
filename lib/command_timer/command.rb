@@ -22,17 +22,17 @@ module CommandTimer
       end
     end
 
-    def echo_command
+    def echo_command(prefix = '')
       @content.split(';').each do |line|
-        puts ">> #{line.strip.gsub('\\', '')}"
+        puts "#{prefix}>> #{line.strip.gsub('\\', '')}"
       end
     end
 
     def run_observer
-      puts "===================="
+      puts "========================================"
       puts "= Start observer, press <Ctrl-C> to stop it."
       puts "= #{@observer}"
-      puts "===================="
+      puts "========================================"
       system @observer
       puts "Observer stopped."
     end

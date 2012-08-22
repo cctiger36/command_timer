@@ -9,10 +9,11 @@ module CommandTimer
 
     def start
       @commands.each_with_index do |command, index|
-        puts "####################"
+        puts "########################################"
         puts "# Next: Command#{index + 1}"
         puts "# #{command.description}" if command.description
-        puts "####################"
+        command.echo_command("# ")
+        puts "########################################"
         if command.burn_time
           if ['auto', 'Auto'].include?(command.burn_time)
             command.exec
@@ -75,7 +76,7 @@ module CommandTimer
 
     def echo_commands
       @commands.each_with_index do |command, index|
-        puts "--------------------"
+        puts "----------------------------------------"
         puts "Command #{index + 1}"
         puts command.description if command.description
         if command.burn_time
@@ -86,7 +87,7 @@ module CommandTimer
         command.echo_command
         puts "Observer: #{command.observer}" if command.observer
       end
-      puts "--------------------"
+      puts "----------------------------------------"
       puts ""
     end
   end
