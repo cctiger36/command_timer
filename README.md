@@ -8,7 +8,14 @@ Simple tool to execute commands on schedule. Designed for maintain web applicati
 
 ## Usage
 
-    $ cmdtimer COMMAND_CONFIG_FILE
+    $ cmdtimer [options] COMMANDS_CONFIG_FILE
+
+### Options
+
+<table>
+  <tr><td>-c, --count-down</td><td>Assign the seconds to count down. (default 30s)</td></tr>
+  <tr><td>-s, --ntp-server</td><td>Assign the NTP server. (only ntp installed)</td></tr>
+</table>
 
 ## Config File Sample (YAML)
 

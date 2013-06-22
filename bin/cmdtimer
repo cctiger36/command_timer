@@ -7,17 +7,19 @@ require "command_timer"
 
 options = {}
 opts = OptionParser.new do |opts|
-  opts.on("--version", "Display current version") do
-    puts "command_timer " + CommandTimer::VERSION
-    exit 0
-  end
+  opts.banner = "Usage: cmdtimer [options] COMMANDS_CONFIG_FILE"
 
-  opts.on("-c [COUNT_DOWN]", "Count down second") do |count_down|
+  opts.on("-c", "--count-down", "Assign the seconds to count down. (default 30s)") do |count_down|
     options['count_down'] = count_down.to_i
   end
 
-  opts.on("-s [NTP_SERVER]", "NTP Server") do |ntp_server|
+  opts.on("-s", "--ntp-server", "Assign the NTP server. (only ntp installed)") do |ntp_server|
     options['ntp_server'] = ntp_server
+  end
+
+  opts.on("-v", "--version", "Display the current version") do
+    puts "command_timer " + CommandTimer::VERSION
+    exit 0
   end
 end
 opts.parse!
