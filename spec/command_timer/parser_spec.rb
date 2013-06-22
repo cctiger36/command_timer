@@ -8,7 +8,7 @@ describe CommandTimer::Parser do
     it "should parse the command config file and return Command objects" do
       commands.size.should == 3
       command.should be_an_instance_of CommandTimer::Command
-      command.description.should == "stop unicorn"
+      command.description.should == "command on schedule"
     end
 
     it "should parse the burn_time to Time" do
@@ -16,11 +16,12 @@ describe CommandTimer::Parser do
     end
 
     it "should concatenate commands in content to single line" do
-      command.content.should == "cd /path/to/app/;cap unicorn:stop;"
+      command.content.should == "pwd;whoami;"
     end
 
     it "should parse observer commands if present" do
-      commands[1].observer.should == 'cd /path/to/app/;cap invoke COMMAND="tail -f /path/to/log/file";'
+      command.observer.should == "free;"
+      commands[1].observer.should be_nil
     end
   end
 end

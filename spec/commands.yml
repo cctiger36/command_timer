@@ -1,21 +1,20 @@
 command1:
-    description: "stop unicorn"
+    description: "command on schedule"
     burn_time: "14:00:00"
     content: |
-        cd /path/to/app/
-        cap unicorn:stop
+        pwd
+        whoami
+    observer: |
+        free
+
 command2:
-    description: "deploy"
+    description: "command by user input"
     burn_time:
     content: |
-        cd /path/to/app/
-        cap deploy
-    observer: |
-        cd /path/to/app/
-        cap invoke COMMAND="tail -f /path/to/log/file"
+        ls
+
 command3:
-    description: "start unicorn"
-    burn_time: "16:00:00"
+    description: "command auto run"
+    burn_time: auto
     content: |
-        cd /path/to/app/
-        cap unicorn:start
+        df

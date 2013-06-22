@@ -7,4 +7,7 @@ describe CommandTimer::Runner do
     output.should include "Command 2"
     output.should include "Command 3"
   end
+
+  context "run commands" do
+  end
 end

@@ -15,7 +15,7 @@ module CommandTimer
         command.echo_command("# ")
         puts "########################################"
         if command.burn_time
-          if ['auto', 'Auto'].include?(command.burn_time)
+          if command.burn_time =~ /^auto$/i
             command.exec
           else
             count_down_and_burn_command(command)
