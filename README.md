@@ -8,9 +8,9 @@ Simple tool to execute commands on schedule. Designed for maintain web applicati
 
 ## Usage
 
-    $ cmdtimer command_config_file
+    $ cmdtimer COMMAND_CONFIG_FILE
 
-## Command Config File Sample (YAML)
+## Config File Sample (YAML)
 
     command1:
         description: "stop unicorn"
@@ -27,8 +27,17 @@ Simple tool to execute commands on schedule. Designed for maintain web applicati
 		observer: |
 			cd /path/to/app/
 			cap invoke COMMAND="tail -f /path/to/log/file"
+    command3:
+        description: "start unicorn"
+		burn_time: "16:00:00"
+		content: |
+			cd /path/to/app/
+			cap unicorn:start
 
-* burn_time: 
-	1. HH:mm:ss - execute commands on time.
-	2. blank - execute commands by user input.
-	3. auto - execute commands after previous command ended.
+### burn_time
+
+<table>
+  <tr><td>HH:mm:ss</td><td>execute commands on time</td></tr>
+  <tr><td>blank</td><td>execute commands by user input</td></tr>
+  <tr><td>auto</td><td>execute commands after previous command ended</td></tr>
+</table>
