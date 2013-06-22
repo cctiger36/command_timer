@@ -1,0 +1,21 @@
+command1:
+    description: "stop unicorn"
+    burn_time: "14:00:00"
+    content: |
+        cd /path/to/app/
+        cap unicorn:stop
+command2:
+    description: "deploy"
+    burn_time:
+    content: |
+        cd /path/to/app/
+        cap deploy
+    observer: |
+        cd /path/to/app/
+        cap invoke COMMAND="tail -f /path/to/log/file"
+command3:
+    description: "start unicorn"
+    burn_time: "16:00:00"
+    content: |
+        cd /path/to/app/
+        cap unicorn:start

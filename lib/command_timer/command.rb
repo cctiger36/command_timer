@@ -4,7 +4,6 @@ module CommandTimer
     attr_accessor :description
     attr_accessor :content
     attr_accessor :observer
-    attr_accessor :grep
 
     def burn_time
       if @burn_time =~ /[0-9]{2}:[0-9]{2}:[0-9]{2}/
