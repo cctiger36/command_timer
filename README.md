@@ -26,7 +26,7 @@ Simple tool to execute commands on schedule. Designed for maintain web applicati
 			cd /path/to/app/
 			cap unicorn:stop
 	command2:
-		desciption: "deploy"
+		description: "deploy"
 		burn_time:
 		content: |
 			cd /path/to/app/
