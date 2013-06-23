@@ -1,6 +1,6 @@
 # CommandTimer
 
-[![Build Status](https://travis-ci.org/cctiger36/command_timer.png?branch=master)](https://travis-ci.org/cctiger36/command_timer)
+[![Build Status](https://travis-ci.org/cctiger36/command_timer.png?branch=master)](https://travis-ci.org/cctiger36/command_timer) [![Gem Version](https://badge.fury.io/rb/command_timer.png)](http://badge.fury.io/rb/command_timer) [![Coverage Status](https://coveralls.io/repos/cctiger36/command_timer/badge.png)](https://coveralls.io/r/cctiger36/command_timer) [![Code Climate](https://codeclimate.com/github/cctiger36/command_timer.png)](https://codeclimate.com/github/cctiger36/command_timer)
 
 Simple tool to execute commands on schedule. Designed for maintain web applications.
 
