@@ -37,15 +37,11 @@ module CommandTimer
         return
       end
       loop do
-        if left_sec >= @count_down
-          current_time = CommandTimer.ntp_time(@ntp_server)
-          left_sec = command.burn_time.to_i - current_time.to_i
-          puts "Time resynced."
-        else
+        puts "[#{current_time}] Next command will be executed at [#{command.burn_time}] (#{left_sec} seconds left)."
+        if left_sec <= @count_down
           current_time += 1
           left_sec -= 1
         end
-        puts "[#{current_time}] Next command will be executed at [#{command.burn_time}] (#{left_sec} seconds left)."
         if left_sec < 1
           break
         else

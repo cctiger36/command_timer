@@ -1,5 +1,7 @@
 # CommandTimer
 
+[![Build Status](https://travis-ci.org/cctiger36/command_timer.png?branch=master)](https://travis-ci.org/cctiger36/command_timer)
+
 Simple tool to execute commands on schedule. Designed for maintain web applications.
 
 ## Installation

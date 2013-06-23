@@ -12,7 +12,7 @@ describe CommandTimer::Parser do
     end
 
     it "should parse the burn_time to Time" do
-      command.burn_time.should == Time.new(Time.now.year, Time.now.month, Time.now.day, 14, 0, 0)
+      command.burn_time.should == time_of_today(14, 0, 0)
     end
 
     it "should concatenate commands in content to single line" do
